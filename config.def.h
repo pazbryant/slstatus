@@ -4,7 +4,7 @@
 const unsigned int interval = 1000;
 
 /* text to show if no value can be retrieved */
-static const char unknown_str[] = "n/a";
+static const char unknown_str[] = "";
 
 /* maximum command output length */
 #define CMDLEN 128
@@ -65,8 +65,10 @@ static const char unknown_str[] = "n/a";
  * wifi_perc           WiFi signal in percent          interface name (wlan0)
  */
 static const struct arg args[] = {
-	/* function format          argument turn signal */
-	{ datetime, "%s",           "%F %T", 1,   -1 },
+	/* function           format            argument                                          turn          signal */
+	{ run_command,       "%s",              "/home/bryant/bin/utilities/slstatus-recording",  0,             1 },
+	{ keymap,            "layout: %s | ",      NULL,                  													  1,						-1 },
+	{ datetime,          "%s",              "%A %B %d - %H:%M",    													  1,						-1 },
 };
 
 /* maximum output string length */
